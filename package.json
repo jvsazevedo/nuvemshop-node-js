@@ -1,0 +1,27 @@
+{
+  "name": "nuvemshop-node",
+  "version": "1.0.0",
+  "description": "Pacote não oficial para comunicação com a API da nuvemshop para a sua aplicação parceira.",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .ts",
+    "build": "npx tsc"
+  },
+  "author": "jsazevedo",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.30.6",
+    "@typescript-eslint/parser": "^5.30.6",
+    "eslint": "^8.20.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
+  },
+  "files": [
+    "build/**/*"
+  ],
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
+}
