@@ -37,60 +37,60 @@ export class Category {
   }
 
   async registerCategory (category: TCategory) {
-        try {
-            const valid = validator.validate(category);
+    try {
+        const valid = validator.validate(category);
 
-            if(valid) {
-                const createdCategory = await this._httpClient.post<Category>(`${this._apiConfig.endpoints.store.categories}`, category);
+        if(valid) {
+            const createdCategory = await this._httpClient.post<Category>(`${this._apiConfig.endpoints.store.categories}`, category);
 
-                return createdCategory.data;
-            }
-
-            throw new Error('invalid_category_object');
-
-        } catch (error) {
-          throw parseError(error);
+            return createdCategory.data;
         }
+
+        throw new Error('invalid_category_object');
+
+    } catch (error) {
+      throw parseError(error);
     }
+  }
 
-    async getCategories(fields?: string[] | null,  id?: number): Promise<TCategory[]> {
-        try {
-            let url = this._apiConfig.endpoints.store.categories;
+  async getCategories(fields?: string[] | null,  id?: number): Promise<TCategory[]> {
+      try {
+          let url = this._apiConfig.endpoints.store.categories;
 
-            if (fields) {
-                url = `${this._apiConfig.endpoints.store.categories}${Querybuilder(fields)}`;
-            }
+          if (fields) {
+              url = `${this._apiConfig.endpoints.store.categories}${Querybuilder(fields)}`;
+          }
 
-            if (id) {
-                url =  `${this._apiConfig.endpoints.store.categories}/${id}`;
-            }
+          if (id) {
+              url =  `${this._apiConfig.endpoints.store.categories}/${id}`;
+          }
 
-            const response = await this._httpClient.get<TCategory[]>(url);
+          const response = await this._httpClient.get<TCategory[]>(url);
 
-            return response.data;
+          return response.data;
 
-        }catch (error) {
-          throw parseError(error);
-        }
-    }
+      }catch (error) {
+        throw parseError(error);
+      }
+  }
 
-    async updateCategory(category: TCategory, id: number): Promise<TCategory> {
-        try {
-            const response = await this._httpClient.put<TCategory>(`${this._apiConfig.endpoints.store.categories}/${id}`, category);
+  async updateCategory(category: TCategory, id: number): Promise<TCategory> {
+      try {
+          const response = await this._httpClient.put<TCategory>(`${this._apiConfig.endpoints.store.categories}/${id}`, category);
 
-            return response.data;
-        } catch (error) {
-          throw parseError(error);
-        }
-    }
+          return response.data;
+      } catch (error) {
+        throw parseError(error);
+      }
+  }
 
-    async deleteCategory(id: number): Promise<void> {
-        try {
+  async deleteCategory(id: number): Promise<void> {
+      try {
 
-            await this._httpClient.delete(`${this._apiConfig.endpoints.store.categories}/${id}`);
+          await this._httpClient.delete(`${this._apiConfig.endpoints.store.categories}/${id}`);
 
-        } catch (error) {
-          throw parseError(error);
-        }
-    }
+      } catch (error) {
+        throw parseError(error);
+      }
+  }
 }

@@ -10,6 +10,10 @@ export const Configs = {
                 categories: '/categories',
                 products: '/products',
                 productVariants: '/variants',
+                orders: '/orders',
+                shippingCarrier: '/shipping_carriers',
+                shippingCarrierOption: '/shipping_carriers/carrier_id/options',
+                webhook: '/webhooks'
             }
         }
     },

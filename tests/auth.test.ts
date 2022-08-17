@@ -6,7 +6,7 @@ const auth = async () => {
     client_id: 4906,
     client_secret: 'bhWppxBzqY4rHPvCaYE57agSBFubqh1EOdsPEOAyaXLqRZeR',
     user_agent: 'Dropshope Backend (djonatas@live.com)',
-    code: 'sfdasdfasfasdf',
+    code: '33ddcdd123938c177392e86f2f3881efebbe8ace',
   }
   const authInstance = Auth(authConfigs);
   console.log(await authInstance.getToken());
